@@ -1,4 +1,4 @@
-package java.com.example;
+package com.example;
 
 public enum TransactionType {
     INCOME,

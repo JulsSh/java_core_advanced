@@ -1,3 +1,3 @@
-package java.com.example;
+package com.example;
 public class Main {
 }

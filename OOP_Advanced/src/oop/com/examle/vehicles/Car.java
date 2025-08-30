@@ -61,10 +61,6 @@ public class Car extends Vehicle  implements Loadable, Breakable, Acceleratable,
         return kmTotal < kmLimit;
     }
 
-    @Override
-    public int getRemainingKm() {
-        return Math.max(0, kmLimit - kmTotal);
-    }
 
     @Override
     public void load(int kg) {

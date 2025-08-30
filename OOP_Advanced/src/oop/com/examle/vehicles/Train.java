@@ -15,7 +15,6 @@ public class Train extends Vehicle implements Loadable, Acceleratable, Breakable
 
     public Train(String model, int speed, int x, int fuel, int maxEnergy, int usePerTick, double breakProbability, int kmLimit) {
         super(model, speed, x);
-        this.energy= energy;
         this.maxEnergy = maxEnergy;
         this.usePerTick = usePerTick;
         this.breakProbability = breakProbability;
@@ -44,10 +43,7 @@ public class Train extends Vehicle implements Loadable, Acceleratable, Breakable
         return kmTotal < kmLimit;
     }
 
-    @Override
-    public int getRemainingKm() {
-        return Math.max(0, kmLimit - kmTotal);
-    }
+
 
     @Override
     public void load(int kg) {

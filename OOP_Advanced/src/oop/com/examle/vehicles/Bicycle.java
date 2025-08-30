@@ -32,10 +32,6 @@ public class Bicycle extends Vehicle implements Breakable, Acceleratable, Limita
         return kmTotal < kmLimit;
     }
 
-    @Override
-    public int getRemainingKm() {
-        return Math.max(0, kmLimit - kmTotal);
-    }
 
     @Override
     public void move() {

@@ -1,34 +1,23 @@
 package ru.skillbox.notification_sender;
 
-import ru.skillbox.notification.Notification;
+import ru.skillbox.notification.SmsNotification;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
-public class SmsNotification implements Notification {
-    private final String message;
-    private final List<String> recipients = new ArrayList<>();
-
-    public SmsNotification(String message) {
-        if (message == null || message.isBlank())
-            throw new IllegalArgumentException("message must not be blank");
-        this.message = message;
-    }
-
-    public void addRecipient(String phone) {
-        if (phone == null || phone.isBlank() || !phone.matches("\\+?\\d+"))
-            throw new IllegalArgumentException("invalid phone: " + phone);
-        recipients.add(phone);
-    }
-
-    public List<String> getRecipients() {
-        return Collections.unmodifiableList(recipients);
+public class SmsNotificationSender implements NotificationSender<SmsNotification> {
+    @Override
+    public void send(SmsNotification notification) {
+        System.out.println("SMS");
+        String receivers = notification.getRecipients().stream().collect(Collectors.joining(", "));
+        System.out.println("receivers: " + receivers);
+        System.out.println("message: " + notification.formattedMessage());
+        System.out.println();
     }
 
     @Override
-    public String formattedMessage() {
-        return message;
+    public void send(List<SmsNotification> notifications) {
+        for (SmsNotification n : notifications) send(n);
     }
 }

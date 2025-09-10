@@ -1,4 +1,5 @@
-package java.collections_base;
+package main.ru.skillbox.collections_base;
+
 import java.util.*;
 
 public class Main {

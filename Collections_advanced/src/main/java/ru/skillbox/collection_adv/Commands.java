@@ -1,4 +1,4 @@
-package collection_adv;
+package ru.skillbox.collection_adv;
 
 public enum Commands {
     IN("in"),

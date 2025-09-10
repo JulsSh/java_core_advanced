@@ -1,8 +1,9 @@
-package collection_adv;
+package ru.skillbox.collection_adv;
 
 import java.util.*;
 
-import static collection_adv.Commands.*;
+import static ru.skillbox.collection_adv.Commands.*;
+
 
 public class ProgramMenu {
     private static final int MAX_AGE = 150;
@@ -34,7 +35,7 @@ public class ProgramMenu {
 
     static {
         CMD.put("in", IN);
-        CMD.put("del", Commands.DEL);
+        CMD.put("del", DEL);
         CMD.put("count", Commands.COUNT);
         CMD.put("avg", Commands.AVG);
         CMD.put("median", Commands.MEDIAN);
@@ -42,7 +43,7 @@ public class ProgramMenu {
         CMD.put("old", Commands.OLD);
         CMD.put("print", Commands.PRINT);
         CMD.put("help", Commands.HELP);
-        CMD.put("exit", Commands.EXIT);
+        CMD.put("exit", EXIT);
     }
 
 

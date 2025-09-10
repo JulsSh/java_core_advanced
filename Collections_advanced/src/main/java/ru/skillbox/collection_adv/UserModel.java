@@ -1,4 +1,4 @@
-package collection_adv;
+package ru.skillbox.collection_adv;
 
 import java.util.Objects;
 

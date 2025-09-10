@@ -9,7 +9,6 @@ import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.apache.commons.collections.CollectionUtils.collect;
 
 public class Main {
     public static void main(String[] args) {
@@ -51,10 +50,10 @@ public class Main {
     }
 
     public static Optional<Flight> findFirstFlightArriveToTerminal(Airport airport, String terminalName) {
-            return airport.getTerminals().stream()
-                    .filter(t -> Objects.equals(t.getName(), terminalName))
-                    .flatMap(t -> t.getFlights().stream())
-                    .filter(f -> f.getType() == Flight.Type.ARRIVAL)
-                    .min(Comparator.comparing(Flight::getDate));
-        }
+        return airport.getTerminals().stream()
+                .filter(t -> Objects.equals(t.getName(), terminalName))
+                .flatMap(t -> t.getFlights().stream())
+                .filter(f -> f.getType() == Flight.Type.ARRIVAL)
+                .min(Comparator.comparing(Flight::getDate));
+    }
 }

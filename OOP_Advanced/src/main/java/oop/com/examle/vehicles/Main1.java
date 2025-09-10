@@ -1,11 +1,8 @@
-package oop.com.examle;
+package oop.com.examle.vehicles;
 
-import oop.com.examle.vehicles.Bicycle;
-import oop.com.examle.vehicles.Car;
-import oop.com.examle.vehicles.Train;
-import oop.com.examle.vehicles.Vehicle;
+import oop.com.examle.Competition;
 
-public class Main{
+public class Main1{
     public static void main(String[] args) {
        //round 1 car will win
 

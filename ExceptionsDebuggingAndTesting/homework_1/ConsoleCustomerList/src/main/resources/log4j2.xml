@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="LOG_DIR">${sys:logDir:-${sys:user.dir}/logs}</Property>
+        <Property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %c{1.} - %msg%n</Property>
+        <!-- Add throwable to error layout -->
+        <Property name="ERROR_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %c{1.} - %msg%n%throwable{full}</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- QUERIES: accept TRACE/DEBUG/INFO from 'queries' logger; drop WARN+ -->
+        <File name="QUERIES"
+              fileName="${LOG_DIR}/queries.log"
+              createOnDemand="true"
+              immediateFlush="true">
+            <PatternLayout pattern="${PATTERN}"/>
+            <ThresholdFilter level="warn" onMatch="DENY" onMismatch="ACCEPT"/>
+        </File>
+
+        <!-- ERRORS: only ERROR+ with stack traces -->
+        <File name="ERRORS"
+              fileName="${LOG_DIR}/errors.log"
+              createOnDemand="true"
+              immediateFlush="true">
+            <PatternLayout pattern="${ERROR_PATTERN}"/>
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+
+        <!-- Console: WARN+ -->
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="${ERROR_PATTERN}"/>
+            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- Dedicated queries logger: ONLY writes to QUERIES -->
+        <Logger name="queries" level="trace" additivity="false">
+            <AppenderRef ref="QUERIES"/>
+        </Logger>
+
+        <!-- Root: no QUERIES here! only console + errors -->
+        <Root level="info">
+            <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="ERRORS"/>
+        </Root>
+    </Loggers>
+</Configuration>

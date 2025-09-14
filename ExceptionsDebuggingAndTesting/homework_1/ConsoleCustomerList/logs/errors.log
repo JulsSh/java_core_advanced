@@ -1,0 +1,58 @@
+2025-09-13 23:49:54.670 WARN  Main - User input error: ru.skillbox.exceptions.InvalidPhoneFormatException: Неверный телефон: "+7921563772". Ожидается 11 цифр. Пример: +79215637722
+2025-09-13 23:50:09.581 WARN  Main - User input error: ru.skillbox.exceptions.CustomerAlreadyExistsException: Клиент "Василий Петров" уже существует. Используйте другое имя или удалите старого клиента.
+2025-09-13 23:54:34. 357 WARN  Main - User input error: ru.skillbox.exceptions.CustomerAlreadyExistsException: Клиент "Василий Петров" уже существует. Используйте другое имя или удалите старого клиента.
+2025-09-13 23:56:04. 978 WARN  Main - User input error: ru.skillbox.exceptions.CustomerAlreadyExistsException: Клиент "Василий Петров" уже существует. Используйте другое имя или удалите старого клиента.
+2025-09-14 14:31:17.500 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:31:17.677 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:31:17.705 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 14:31:17.714 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722
+2025-09-14 14:31:30.775 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:31:30.877 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:31:30.897 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 14:31:30.905 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722
+2025-09-14 14:35:57.541 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:35:57.780 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:35:57.852 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 14:35:57.863 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722
+2025-09-14 14:37:18.154 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:37:18.218 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:37:18.236 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 14:37:18.256 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722
+2025-09-14 14:38:06.672 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:38:06.768 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:38:06.928 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 14:38:06.935 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722
+2025-09-14 14:38:39.269 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:38:39.431 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:38:39.537 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 14:38:39.546 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722
+2025-09-14 14:39:02.042 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:39:02.084 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:39:02.108 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 14:39:02.118 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722
+2025-09-14 14:39:37.040 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:39:37.071 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 14:39:37.090 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 14:39:37.101 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722
+2025-09-14 15:03:58.342 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 5. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 15:03:58.368 ERROR CustomerStorage - Ошибка при добавлении клиента: Некорректное количество компонентов: 3. Ожидалось 4: "Имя Фамилия email phone".
+Пример: add Василий Петров vasily.petrov@gmail.com +79215637722
+2025-09-14 15:03:58.409 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный формат email: "thisIsNotAnEmail". Пример: vasily.petrov@gmail.com
+2025-09-14 15:03:58.421 ERROR CustomerStorage - Ошибка при добавлении клиента: Неверный телефон: "+thisIsNotANumber". Ожидается 11 цифр. Пример: +79215637722

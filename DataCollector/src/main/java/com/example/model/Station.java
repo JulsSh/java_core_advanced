@@ -8,6 +8,7 @@ import lombok.Data;
 public class Station {
         private String name;
         private String lineNumber; // link to Line.number
+        private StationProperties stationProperties;
 
     public Station(String name, String lineNumber) {
         this.name = name;

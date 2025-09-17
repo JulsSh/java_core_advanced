@@ -1,10 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
-<file name="/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/App.java">
-<error line="85" severity="warning" message="тело &apos;if&apos; должно быть заключено в &apos;{}&apos;" source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="86" severity="warning" message="тело &apos;if&apos; должно быть заключено в &apos;{}&apos;" source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="87" severity="warning" message="тело &apos;if&apos; должно быть заключено в &apos;{}&apos;" source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="88" severity="warning" message="тело &apos;if&apos; должно быть заключено в &apos;{}&apos;" source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="89" severity="warning" message="тело &apos;if&apos; должно быть заключено в &apos;{}&apos;" source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-</file>
 </checkstyle>

@@ -10,4 +10,9 @@ import java.util.Map;
 public class MetroMapDTO {
     private List<Line> lines;
     private Map<String, List<String>> stations;
+
+    public MetroMapDTO() {}
+    public MetroMapDTO(List<Line> lines, Map<String, List<String>> stations) {
+        this.lines = lines; this.stations = stations;
+    }
 }

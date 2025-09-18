@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
 
 public class DataCollector {
     private static final Logger LOG = LoggerFactory.getLogger(DataCollector.class);
-
-    // Небольшой DTO для путей (класс, не record — дружит с Checkstyle)
+    private static final java.util.Set<String> IGNORE_JSON_BASENAMES =
+            java.util.Set.of("map.json", "stations.json");
     private static class ProjectPaths {
         final Path dataRoot;
         final Path outDir;
@@ -35,7 +35,6 @@ public class DataCollector {
         }
     }
 
-    // --- короткий main (≤ 50 непустых строк) ---
     public static void main(String[] args) throws Exception {
         ProjectPaths p = resolvePaths(args);
 
@@ -58,7 +57,6 @@ public class DataCollector {
 
         LOG.info("Done. Files written to {}", p.outDir.toAbsolutePath());
     }
-    // --- конец короткого main ---
 
     private static ProjectPaths resolvePaths(String[] args) {
         Path outDir = Path.of("out");
@@ -100,12 +98,17 @@ public class DataCollector {
 
         List<StationProperties> propsFromJson = new ArrayList<>();
         for (Path jf : found.json) {
+            String base = jf.getFileName().toString().toLowerCase(java.util.Locale.ROOT);
+            if (IGNORE_JSON_BASENAMES.contains(base)) {
+                LOG.debug("Skipping sample format JSON: {}", jf);
+                continue;
+            }
             try {
                 propsFromJson.addAll(jsonParser.parse(jf));
             } catch (Exception e) {
-                // вероятно depth-файл или иной формат — пропускаем
                 LOG.debug("Skipping non-station JSON: {}", jf, e);
             }
+
         }
 
         List<StationProperties> propsFromCsv = new ArrayList<>();

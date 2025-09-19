@@ -1,6 +1,6 @@
 package com.example;
 
-import com.example.write.DepthAggregator;                  // у тебя DepthAggregator лежит в write
+import com.example.write.DepthAggregator;
 import com.example.model.Line;
 import com.example.model.Station;
 import com.example.model.StationProperties;
@@ -9,7 +9,7 @@ import com.example.parse.FileFinder;
 import com.example.parse.JsonStationsParser;
 import com.example.parse.WebMetroParser;
 import com.example.write.OutputWriter;
-import com.example.write.OutputWriter.ConnectionOut;        // <- для connections
+import com.example.write.OutputWriter.ConnectionOut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,12 +23,13 @@ import java.util.stream.Collectors;
 
 public class DataCollector {
     private static final Logger LOG = LoggerFactory.getLogger(DataCollector.class);
+
     private static final java.util.Set<String> IGNORE_JSON_BASENAMES =
             java.util.Set.of("map.json", "stations.json");
+
     private static class ProjectPaths {
         final Path dataRoot;
         final Path outDir;
-
         ProjectPaths(Path dataRoot, Path outDir) {
             this.dataRoot = dataRoot;
             this.outDir = outDir;
@@ -50,9 +51,15 @@ public class DataCollector {
 
         attachPropsToStations(metro.stations, mergedProps);
 
-        // конвертируем пересадки в формат writer-а
-        List<List<ConnectionOut>> connOut = OutputWriter.convertConnections(metro.connections);
+        enrichPropsWithLineAndConnections(
+                mergedProps,
+                metro.stations,
+                metro.lines,
+                metro.connections
+        );
 
+        // конвертируем пересадки в формат writer-а и пишем файлы
+        List<List<ConnectionOut>> connOut = OutputWriter.convertConnections(metro.connections);
         writeOutputs(p.outDir, metro.lines, metro.stations, mergedProps.values(), connOut);
 
         LOG.info("Done. Files written to {}", p.outDir.toAbsolutePath());
@@ -65,7 +72,7 @@ public class DataCollector {
         if (args.length > 0) {
             candidates.add(Path.of(args[0]));
         }
-        // стандартные варианты расположения данных
+
         candidates.add(Path.of("FilesAndNetwork", "DataCollector", "data"));
         candidates.add(Path.of("src", "main", "java", "com", "example", "data"));
         candidates.add(Path.of("src", "main", "resources", "data"));
@@ -108,7 +115,6 @@ public class DataCollector {
             } catch (Exception e) {
                 LOG.debug("Skipping non-station JSON: {}", jf, e);
             }
-
         }
 
         List<StationProperties> propsFromCsv = new ArrayList<>();
@@ -134,7 +140,6 @@ public class DataCollector {
             merged.merge(key, sp, DataCollector::mergeProps);
         }
 
-        // подтягиваем глубины из специальных JSON-ов (station_name/depth) с приоритетом большей глубины
         Map<String, Double> depthByName = depthAgg.readDepths(found.json);
         for (StationProperties sp : merged.values()) {
             Double ext = depthByName.get(sp.getName());
@@ -169,11 +174,10 @@ public class DataCollector {
                                      Collection<StationProperties> props,
                                      List<List<ConnectionOut>> connections) throws Exception {
         OutputWriter writer = new OutputWriter();
-        writer.writeMapJson(outDir, lines, stations, connections); // <- теперь с connections
+        writer.writeMapJson(outDir, lines, stations, connections);
         writer.writeStationsJson(outDir, new ArrayList<>(props));
     }
 
-    // слияние StationProperties (глубина — по большей абсолютной, hasConnection — логическое ИЛИ, остальные — первый ненулевой)
     private static StationProperties mergeProps(StationProperties a, StationProperties b) {
         StationProperties r = new StationProperties();
         r.setName(a.getName() != null ? a.getName() : b.getName());
@@ -200,5 +204,56 @@ public class DataCollector {
             r.setHasConnection(false);
         }
         return r;
+    }
+
+    private static void enrichPropsWithLineAndConnections(
+            Map<String, StationProperties> merged,
+            List<Station> stationsFromWeb,
+            List<Line> linesFromWeb,
+            List<List<com.example.parse.WebMetroParser.ConnectionNode>> connections
+    ) {
+
+        Map<String, String> lineNumToName = new LinkedHashMap<>();
+        for (Line ln : linesFromWeb) {
+            lineNumToName.put(ln.getNumber(), ln.getName());
+        }
+
+        Map<String, String> stationNameToLineNum = new LinkedHashMap<>();
+        for (Station st : stationsFromWeb) {
+            stationNameToLineNum.putIfAbsent(st.getName(), st.getLineNumber());
+        }
+
+        java.util.Set<String> hasConnByName = new java.util.HashSet<>();
+        if (connections != null) {
+            for (var group : connections) {
+                if (group == null || group.size() < 2) {
+                    continue;
+                }
+                for (var c : group) {
+                    hasConnByName.add(c.station);
+                }
+            }
+        }
+
+
+        for (StationProperties sp : merged.values()) {
+            // 1) line (имя линии): если пусто — берём по номеру, полученному с веб-страницы
+            if (sp.getLine() == null || sp.getLine().isBlank()) {
+                String lineNum = stationNameToLineNum.get(sp.getName());
+                if (lineNum != null) {
+                    String lineName = lineNumToName.get(lineNum);
+                    if (lineName != null && !lineName.isBlank()) {
+                        sp.setLine(lineName);
+                    }
+                }
+            }
+
+            boolean computedHasConn = hasConnByName.contains(sp.getName());
+            if (sp.getHasConnection() == null) {
+                sp.setHasConnection(computedHasConn);
+            } else if (!sp.getHasConnection() && computedHasConn) {
+                sp.setHasConnection(true);
+            }
+        }
     }
 }

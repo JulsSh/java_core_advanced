@@ -1,0 +1,13 @@
+#Wed Sep 17 21:36:49 CEST 2025
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/DataCollector.java=1758137435144
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/model/Line.java=1757951979079
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/model/Station.java=1758041578686
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/model/StationProperties.java=1758041578655
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/parse/CsvStationParser.java=1757963372262
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/parse/FileFinder.java=1758124260171
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/parse/JsonStationsParser.java=1757963531151
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/parse/WebMetroParser.java=1758137664423
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/write/DepthAggregator.java=1758123993407
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/write/MetroMapDTO.java=1758123063637
+/Users/macbook/IdeaProjects/java_core_advanced/all5/DataCollector/src/main/java/com/example/write/OutputWriter.java=1758137779936
+configuration*?=346F18951554CB3CB5019DEF84587FAE3980201
